@@ -156,6 +156,11 @@
 
     #user-input::placeholder {
       color: rgba(255, 255, 255, 0.35);
+      transition: color 0.4s ease;
+    }
+
+    #user-input.placeholder-fading::placeholder {
+      color: rgba(255, 255, 255, 0);
     }
 
     #user-input:focus {
@@ -237,13 +242,17 @@
     let placeholderInterval = null;
 
     function cyclePlaceholder() {
-      placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
-      inputEl.placeholder = PLACEHOLDER_SUGGESTIONS[placeholderIndex];
+      inputEl.classList.add('placeholder-fading');
+      setTimeout(() => {
+        placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
+        inputEl.placeholder = PLACEHOLDER_SUGGESTIONS[placeholderIndex];
+        inputEl.classList.remove('placeholder-fading');
+      }, 400);
     }
 
     function startPlaceholderCycle() {
       if (placeholderInterval) return;
-      placeholderInterval = setInterval(cyclePlaceholder, 3500);
+      placeholderInterval = setInterval(cyclePlaceholder, 6000);
     }
 
     function stopPlaceholderCycle() {
