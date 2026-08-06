@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { message } = req.body;
+  const { message, history } = req.body;
   if (!message) return res.status(400).json({ error: 'Message is required' });
 
   try {
@@ -227,6 +227,7 @@ Use the Q&A pairs below as your primary source for conversational, personality-d
 If a question isn't covered by either source, answer naturally based on the context you have, or politely say you're not sure.
 
 Keep answers concise and conversational. Do not mention the Q&A pairs, the resume, or that you're referencing any document.
+If the user sends a short or ambiguous message like "ok", "cool", "sure", or "interesting", use it as an opportunity to naturally steer toward a related topic from earlier in the conversation, or invite them to ask about something else.
 Avoid exclamation points and em dashes in your responses.
 When a response has two or more distinct parts, separate them with ||| between the parts. Each part will appear as its own message bubble. Use this for responses that cover multiple topics or have a natural pause, but don't force it on short single-topic answers. Keep each part under 50 words.
 ${weatherContext ? `\nFor weather questions, use this real-time data: ${weatherContext}` : ''}
@@ -245,7 +246,7 @@ ${RESUME}`;
         model: 'claude-haiku-4-5',
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: message }]
+        messages: [...(history || []), { role: 'user', content: message }]
       })
     });
 
