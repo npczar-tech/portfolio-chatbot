@@ -156,11 +156,6 @@
 
     #user-input::placeholder {
       color: rgba(255, 255, 255, 0.35);
-      transition: color 0.4s ease;
-    }
-
-    #user-input.placeholder-fading::placeholder {
-      color: rgba(255, 255, 255, 0);
     }
 
     #user-input:focus {
@@ -239,25 +234,46 @@
     ];
 
     let placeholderIndex = 0;
-    let placeholderInterval = null;
+    let placeholderTimeout = null;
+    let placeholderAnimating = false;
 
-    function cyclePlaceholder() {
-      inputEl.classList.add('placeholder-fading');
-      setTimeout(() => {
-        placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
-        inputEl.placeholder = PLACEHOLDER_SUGGESTIONS[placeholderIndex];
-        inputEl.classList.remove('placeholder-fading');
-      }, 400);
+    async function cyclePlaceholder() {
+      if (placeholderAnimating || inputEl.value) return;
+      placeholderAnimating = true;
+
+      const current = inputEl.placeholder;
+      const next = PLACEHOLDER_SUGGESTIONS[(placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length];
+
+      // Delete current text
+      for (let i = current.length; i >= 0; i--) {
+        if (inputEl.value) { placeholderAnimating = false; return; }
+        inputEl.placeholder = current.slice(0, i);
+        await pause(30);
+      }
+
+      placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
+
+      // Type new text
+      for (let i = 0; i <= next.length; i++) {
+        if (inputEl.value) { placeholderAnimating = false; return; }
+        inputEl.placeholder = next.slice(0, i);
+        await pause(55);
+      }
+
+      placeholderAnimating = false;
+      if (!inputEl.value) {
+        placeholderTimeout = setTimeout(cyclePlaceholder, 6000);
+      }
     }
 
     function startPlaceholderCycle() {
-      if (placeholderInterval) return;
-      placeholderInterval = setInterval(cyclePlaceholder, 6000);
+      if (placeholderTimeout || placeholderAnimating) return;
+      placeholderTimeout = setTimeout(cyclePlaceholder, 6000);
     }
 
     function stopPlaceholderCycle() {
-      clearInterval(placeholderInterval);
-      placeholderInterval = null;
+      clearTimeout(placeholderTimeout);
+      placeholderTimeout = null;
     }
 
     inputEl.addEventListener('input', () => {
