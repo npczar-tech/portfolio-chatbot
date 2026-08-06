@@ -233,14 +233,20 @@
         const chunk = chunks[i].trim();
         if (!chunk) continue;
 
-        const typingEl = addMessage(thinkingLabel(), 'typing');
-        await pause(600 + Math.random() * 600);
-        typingEl.remove();
+        if (i === 0) {
+          // Brief thinking before first bubble — user just submitted
+          const typingEl = addMessage(thinkingLabel(), 'typing');
+          await pause(600 + Math.random() * 600);
+          typingEl.remove();
+        }
 
         addMessage(chunk, 'bot');
 
         if (i < chunks.length - 1) {
+          // Reading-duration thinking between bubbles — proportional to words just read
+          const readingTypingEl = addMessage(thinkingLabel(), 'typing');
           await pause(readingPause(chunk));
+          readingTypingEl.remove();
         }
       }
     }
