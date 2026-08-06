@@ -203,12 +203,12 @@
         <input
           type="text"
           id="user-input"
-          placeholder="Ask me something..."
+          placeholder="Ask about conversation design..."
           autocomplete="off"
         />
         <button id="send-btn" aria-label="Send">&#9658;</button>
       </div>
-      <div id="disclaimer">I can make unintended leaps.</div>
+      <div id="disclaimer">I may make unintended leaps.</div>
     </div>
   </div>
 
@@ -219,6 +219,44 @@
     const inputEl = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
     const conversationHistory = [];
+
+    const PLACEHOLDER_SUGGESTIONS = [
+      'Ask about conversation design...',
+      'Ask about growing up overseas...',
+      'Ask about living in Tucson...',
+      'Ask about working at Meta...',
+      'Ask about Hello Barbie...',
+      'Ask about switching from theater to tech...',
+      'Ask about the Ray-Ban smart glasses...',
+      'Ask about hobbies and free time...',
+      'Ask about what kind of job Nick is looking for...',
+      'Ask about working with AI and LLMs...',
+    ];
+
+    let placeholderIndex = 0;
+    let placeholderInterval = null;
+
+    function cyclePlaceholder() {
+      placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
+      inputEl.placeholder = PLACEHOLDER_SUGGESTIONS[placeholderIndex];
+    }
+
+    function startPlaceholderCycle() {
+      if (placeholderInterval) return;
+      placeholderInterval = setInterval(cyclePlaceholder, 3500);
+    }
+
+    function stopPlaceholderCycle() {
+      clearInterval(placeholderInterval);
+      placeholderInterval = null;
+    }
+
+    inputEl.addEventListener('input', () => {
+      if (inputEl.value) stopPlaceholderCycle();
+      else startPlaceholderCycle();
+    });
+
+    startPlaceholderCycle();
 
     function linkify(text) {
       return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">$1</a>');
@@ -286,6 +324,7 @@
       if (!message) return;
 
       inputEl.value = '';
+      stopPlaceholderCycle();
       sendBtn.disabled = true;
       addMessage(message, 'user');
       conversationHistory.push({ role: 'user', content: message });
@@ -316,6 +355,7 @@
 
       sendBtn.disabled = false;
       inputEl.focus();
+      startPlaceholderCycle();
     }
 
     sendBtn.addEventListener('click', sendMessage);
