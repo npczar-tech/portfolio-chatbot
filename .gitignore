@@ -1,0 +1,11 @@
+.DS_Store
+.claude/
+credentials.json
+*.pdf
+*.docx
+*.md
+*.ttf
+*.jpg
+*.py
+*.html
+!public/chat-widget.html
