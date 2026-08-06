@@ -192,10 +192,18 @@
     const inputEl = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
 
+    function linkify(text) {
+      return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">$1</a>');
+    }
+
     function addMessage(text, role) {
       const div = document.createElement('div');
       div.className = `message ${role}`;
-      div.textContent = text;
+      if (role === 'bot') {
+        div.innerHTML = linkify(text);
+      } else {
+        div.textContent = text;
+      }
       messagesEl.appendChild(div);
       messagesEl.scrollTop = messagesEl.scrollHeight;
       return div;
