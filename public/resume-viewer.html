@@ -17,14 +17,10 @@
       gap: 16px;
     }
 
-    #toolbar {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      padding: 12px 16px;
-    }
-
     #download-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
       background: #c4522a;
       color: white;
       border: none;
@@ -35,6 +31,8 @@
       text-decoration: none;
       display: inline-block;
       transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 10;
     }
 
     #download-btn:hover { background: #d95e32; }
@@ -63,9 +61,7 @@
   </style>
 </head>
 <body>
-  <div id="toolbar">
-    <a id="download-btn" href="/resume.pdf" download="Nicholas_Pelczar_Resume.pdf">Download</a>
-  </div>
+  <a id="download-btn" href="/resume.pdf" download="Nicholas_Pelczar_Resume.pdf">Download</a>
   <div id="pdf-container">
     <div id="loading">Loading resume...</div>
   </div>
