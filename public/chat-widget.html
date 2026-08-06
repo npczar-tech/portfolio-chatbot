@@ -373,6 +373,7 @@
         });
 
         const data = await response.json();
+        await pause(800 + Math.random() * 600);
         typingEl.remove();
 
         if (data.reply) {
