@@ -10,5 +10,6 @@ credentials.json
 *.html
 !public/chat-widget.html
 !public/resume.pdf
+!public/resume-preview.png
 !public/resume-viewer.html
 !vercel.json
