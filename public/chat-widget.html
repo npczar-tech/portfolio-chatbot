@@ -266,8 +266,7 @@
       return Math.max(1500, ms * (0.85 + Math.random() * 0.3)); // ±15% jitter, min 1.5s
     }
 
-    async function displayBubbles(chunks) {
-      const label = thinkingLabel();
+    async function displayBubbles(chunks, label) {
       for (let i = 0; i < chunks.length; i++) {
         const chunk = chunks[i].trim();
         if (!chunk) continue;
@@ -297,7 +296,8 @@
       addMessage(message, 'user');
       conversationHistory.push({ role: 'user', content: message });
 
-      const typingEl = addMessage(thinkingLabel(), 'typing');
+      const label = thinkingLabel();
+      const typingEl = addMessage(label, 'typing');
 
       try {
         const response = await fetch(API_URL, {
@@ -312,7 +312,7 @@
         if (data.reply) {
           conversationHistory.push({ role: 'assistant', content: data.reply });
           const chunks = data.reply.split('|||').map(s => s.trim()).filter(Boolean);
-          await displayBubbles(chunks);
+          await displayBubbles(chunks, label);
         } else {
           addMessage("Sorry, I couldn't get a response. Try again!", 'bot');
         }
