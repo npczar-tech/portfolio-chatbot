@@ -209,6 +209,33 @@
       return div;
     }
 
+    const THINKING_LABELS = [
+      'Thinking...', 'Ideating...', 'Noodling...', 'Considering...',
+      'Having a think...', 'Taking that in...'
+    ];
+
+    function thinkingLabel() {
+      return THINKING_LABELS[Math.floor(Math.random() * THINKING_LABELS.length)];
+    }
+
+    function pause(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function displayBubbles(chunks) {
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i].trim();
+        if (!chunk) continue;
+        addMessage(chunk, 'bot');
+        if (i < chunks.length - 1) {
+          await pause(300);
+          const typingEl = addMessage(thinkingLabel(), 'typing');
+          await pause(650);
+          typingEl.remove();
+        }
+      }
+    }
+
     async function sendMessage() {
       const message = inputEl.value.trim();
       if (!message) return;
@@ -217,7 +244,7 @@
       sendBtn.disabled = true;
       addMessage(message, 'user');
 
-      const typingEl = addMessage('Typing...', 'typing');
+      const typingEl = addMessage(thinkingLabel(), 'typing');
 
       try {
         const response = await fetch(API_URL, {
@@ -230,7 +257,8 @@
         typingEl.remove();
 
         if (data.reply) {
-          addMessage(data.reply, 'bot');
+          const chunks = data.reply.split('|||').map(s => s.trim()).filter(Boolean);
+          await displayBubbles(chunks);
         } else {
           addMessage("Sorry, I couldn't get a response. Try again!", 'bot');
         }
