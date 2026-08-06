@@ -203,7 +203,7 @@
         <input
           type="text"
           id="user-input"
-          placeholder="Ask about conversation design..."
+          placeholder="Ask me about conversation design..."
           autocomplete="off"
         />
         <button id="send-btn" aria-label="Send">&#9658;</button>
@@ -221,16 +221,18 @@
     const conversationHistory = [];
 
     const PLACEHOLDER_SUGGESTIONS = [
-      'Ask about conversation design...',
-      'Ask about growing up overseas...',
-      'Ask about living in Tucson...',
-      'Ask about working at Meta...',
-      'Ask about Hello Barbie...',
-      'Ask about switching from theater to tech...',
-      'Ask about the Ray-Ban smart glasses...',
-      'Ask about hobbies and free time...',
-      'Ask about what kind of job Nick is looking for...',
-      'Ask about working with AI and LLMs...',
+      'Ask me about conversation design...',
+      'Ask me about growing up overseas...',
+      'Ask me about living in Tucson...',
+      'Ask me about working at Meta...',
+      'Ask me about working at Intuit...',
+      'Ask me about working at PullString...',
+      'Ask me about Hello Barbie...',
+      'Ask me about switching from theater to tech...',
+      'Ask me about the Ray-Ban smart glasses...',
+      'Ask me about hobbies and free time...',
+      'Ask me about the work I\'m looking for...',
+      'Ask me about working with AI and LLMs...',
     ];
 
     let placeholderIndex = 0;
@@ -242,19 +244,26 @@
       placeholderAnimating = true;
 
       const current = inputEl.placeholder;
-      const next = PLACEHOLDER_SUGGESTIONS[(placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length];
+      const nextIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
+      const next = PLACEHOLDER_SUGGESTIONS[nextIndex];
 
-      // Delete current text
-      for (let i = current.length; i >= 0; i--) {
+      // Find shared prefix so we only retype what changes
+      let commonLen = 0;
+      while (commonLen < current.length && commonLen < next.length && current[commonLen] === next[commonLen]) {
+        commonLen++;
+      }
+
+      // Delete back to the divergence point
+      for (let i = current.length; i > commonLen; i--) {
         if (inputEl.value) { placeholderAnimating = false; return; }
         inputEl.placeholder = current.slice(0, i);
         await pause(30);
       }
 
-      placeholderIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
+      placeholderIndex = nextIndex;
 
-      // Type new text
-      for (let i = 0; i <= next.length; i++) {
+      // Type the new suffix
+      for (let i = commonLen; i <= next.length; i++) {
         if (inputEl.value) { placeholderAnimating = false; return; }
         inputEl.placeholder = next.slice(0, i);
         await pause(55);
