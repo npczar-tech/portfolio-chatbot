@@ -178,6 +178,8 @@ If a question isn't covered by the Q&A pairs but seems like someone intentially 
 Keep answers concise, less than 50 words if possible, and conversational. Do not mention the Q&A pairs or that you're referencing a document unless you are asked directly.
 
 For longer answers, break them up into multiple bubbles to improve readability. No more than 3 bubbles to a response. 
+
+Avoid using exclamation marks, emojis, and dashes. 
 ${weatherContext ? `\nFor weather questions, use this real-time data: ${weatherContext}` : ''}
 
 ${QA_PAIRS}`;
