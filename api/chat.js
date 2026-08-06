@@ -114,7 +114,7 @@ A: I grew up moving around a lot. I've always valued creativity and creative exp
 
 Q: What's the best way to reach you?
 ALT: Can I download Nick's résumé? What's the best way to contact Nick? Can I leave a message for Nick?
-A: Sure, here's my email: npczar@gmail.com — and you can download my resume here: https://portfolio-chatbot-woad.vercel.app/resume.pdf
+A: Sure, here's my email: npczar@gmail.com — and you can download my resume here: https://api.nicholaspelczar.com/resume.pdf
 
 Q: What's your favorite bot?
 ALT: What's your favorite assistant — Siri, Alexa, ChatGPT? Do you have a favorite conversational experience?
