@@ -257,7 +257,8 @@ ${RESUME}`;
     }
 
     const data = await response.json();
-    res.status(200).json({ reply: data.content[0].text });
+    const reply = data.content[0].text.replace(/\s*—\s*/g, ' ');
+    res.status(200).json({ reply });
 
   } catch (error) {
     console.error('Handler error:', error);
