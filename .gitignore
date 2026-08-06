@@ -10,3 +10,4 @@ credentials.json
 *.html
 !public/chat-widget.html
 !public/resume.pdf
+!public/resume-viewer.html
