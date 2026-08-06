@@ -125,8 +125,13 @@
 
     #input-area {
       display: flex;
+      flex-direction: column;
+      padding: 10px 16px 0;
+    }
+
+    .input-row {
+      display: flex;
       gap: 8px;
-      padding: 10px 16px 6px;
     }
 
     #disclaimer {
@@ -134,7 +139,7 @@
       font-size: 12px;
       font-weight: 300;
       color: rgba(150, 200, 230, 0.35);
-      padding: 0 16px 18px;
+      padding: 10px 0 18px;
     }
 
     #user-input {
@@ -194,15 +199,17 @@
       <div class="message system">Ask about Nick's background, work, or life in general.</div>
     </div>
     <div id="input-area">
-      <input
-        type="text"
-        id="user-input"
-        placeholder="Ask me something..."
-        autocomplete="off"
-      />
-      <button id="send-btn" aria-label="Send">&#9658;</button>
+      <div class="input-row">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me something..."
+          autocomplete="off"
+        />
+        <button id="send-btn" aria-label="Send">&#9658;</button>
+      </div>
+      <div id="disclaimer">I can make unintended leaps.</div>
     </div>
-    <div id="disclaimer">I can make unintended leaps.</div>
   </div>
 
   <script>
