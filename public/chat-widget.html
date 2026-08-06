@@ -127,7 +127,15 @@
     #input-area {
       display: flex;
       gap: 8px;
-      padding: 10px 16px 14px;
+      padding: 10px 16px 6px;
+    }
+
+    #disclaimer {
+      text-align: center;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.25);
+      font-style: italic;
+      padding: 0 16px 12px;
     }
 
     #user-input {
@@ -195,6 +203,7 @@
       />
       <button id="send-btn" aria-label="Send">&#9658;</button>
     </div>
+    <div id="disclaimer">I'm an LLM, I can make some unintended leaps.</div>
   </div>
 
   <script>
