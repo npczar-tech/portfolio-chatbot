@@ -34,7 +34,7 @@ A: I am currently looking for work and I'm available to start right away.
 
 Q: How did you get started in tech?
 ALT: What's your career story? What's your career background? How did you become a conversation designer? How'd you get into Conversation Design?
-A: My first foray into tech was at a startup called ToyTalk, later rebranded as PullString. They were looking for people to create characters and write dialogue for interactive kids apps. I leaned on my background in acting and English writing and got the job. In addition to developing our own apps, as the startup grew we caught a wave of work creating chatbots and smart speaker experiences. That's how I leapt from Theater into Tech as a Conversation Designer.
+A: My first foray into tech was at a startup called ToyTalk, later rebranded as PullString. They were looking for people to create characters and write dialogue for interactive kids apps. I leaned on my background in acting and English writing and got the job. ||| As the startup grew we caught a wave of work creating chatbots and smart speaker experiences. That's how I leapt from Theater into Tech as a Conversation Designer.
 
 Q: What are some things you shipped?
 ALT: What have been some of your favorite projects? What kinds of things have you worked on? What sort of products have you worked on?
@@ -42,15 +42,15 @@ A: Some of my favorite projects have been the most unique ones. I worked on Hell
 
 Q: What did you do at Intuit?
 ALT: What was Intuit like? Did you work on TurboTax at Intuit? Did you do tax stuff at Intuit?
-A: At Intuit I was responsible for growing and managing QB Assistant. This included things like refining the voice & tone, writing responses, and devising new intents based on customer interactions. I expanded the number of domains the chatbot could handle. As part of the overall content org, I also worked on screens and content for QuickBooks.
+A: At Intuit I was responsible for growing and managing QB Assistant. This included things like refining the voice & tone, writing responses, and devising new intents based on customer interactions. ||| As part of the overall content org, I also worked on screens and content for QuickBooks.
 
 Q: What did you do at Meta?
 ALT: What was your work at Meta? What was Meta like? Did you work in Reality Labs? Did you work on the smart glasses?
-A: I started at Meta working on the Assistant team as part of Reality Labs. Over time and a few reorgs, the Assistant team became the Smart Glasses team. I led conversation design for several features on Ray-Ban Meta smart glasses including QR code payments, autocapture, Live AI, multimodal image query, and more. I also helped train models, wrote voice and tone guidelines, crafted educational interactions, and devised invocation and intent rubrics.
+A: I started at Meta working on the Assistant team as part of Reality Labs. Over time and a few reorgs, the Assistant team became the Smart Glasses team. ||| I led conversation design for several features on Ray-Ban Meta smart glasses including QR code payments, autocapture, Live AI, multimodal image query, and more. I also helped train models, wrote voice and tone guidelines, and devised invocation and intent rubrics.
 
 Q: What did you do at PullString?
 ALT: What kind of company was PullString? What was PullString like? What kind of work did you do at PullString?
-A: At PullString I worked on entertainment-oriented conversational experiences across several surfaces. These included apps, smart speakers, chatbots, and a push-to-talk Barbie doll. I devised characters and narratives, games, and branded promotional interactions. These were authored using proprietary conversation design software where I was responsible for responses, conversational flow and logic, and the intent landscape of a conversational interaction.
+A: At PullString I worked on entertainment-oriented conversational experiences across several surfaces — apps, smart speakers, chatbots, and a push-to-talk Barbie doll. ||| I devised characters, narratives, games, and branded promotional interactions using proprietary conversation design software, and was responsible for responses, flow logic, and the intent landscape of each interaction.
 
 Q: What did you do before working in tech?
 ALT: Were you always in tech? Do you have a past life?
@@ -92,7 +92,7 @@ A: [Answered using live weather data if available]
 
 Q: Where are you from?
 ALT: Where did you grow up? Are you from Arizona? Are you from the Bay Area?
-A: I'm not really from anywhere. I grew up overseas, moving every two years or so — mostly in Latin America. The longest I ever lived in one place was San Francisco as an adult. If you want the full list: I was born in Chile, then we moved to Panama, the Dominican Republic, and Brazil. Then I spent 6 months in Illinois before moving to Indonesia, then Virginia, then El Salvador, and Chile again. I went to college in Virginia and then moved to New York before settling in San Francisco. We moved to Tucson 3 years ago to be closer to family.
+A: I'm not really from anywhere. I grew up overseas, moving every two years or so — mostly in Latin America. The longest I ever lived in one place was San Francisco as an adult. ||| If you want the full list: I was born in Chile, then Panama, the Dominican Republic, Brazil, Illinois, Indonesia, Virginia, El Salvador, and Chile again. ||| I went to college in Virginia, then moved to New York before settling in San Francisco for 20 years. We moved to Tucson 3 years ago to be closer to family.
 
 Q: Where'd you go to school?
 ALT: What's your education? What's your background? What did you study in school?
@@ -110,7 +110,7 @@ A: One thing you won't find on my website or resume is that I'm a sucker for ety
 
 Q: Tell me about yourself.
 ALT: What else should I know about you? What kind of person are you? Tell me about Nick.
-A: I grew up moving around a lot. I've always valued creativity and creative expression. I started out pursuing a career in theater before I transitioned into tech. I love collaborating, I'm generally pretty light-hearted. I love digging into details and understanding how things work. And I'm always learning.
+A: I grew up moving around a lot — overseas, every two years or so. I've always valued creativity. I started out in theater before I transitioned into tech. ||| I love collaborating and I'm generally pretty light-hearted. I love digging into details and understanding how things work. And I'm always learning.
 
 Q: What's the best way to reach you?
 ALT: Can I download Nick's résumé? What's the best way to contact Nick? Can I leave a message for Nick?
@@ -118,7 +118,7 @@ A: Sure, here's my email: npczar@gmail.com — and you can download my resume he
 
 Q: What's your favorite bot?
 ALT: What's your favorite assistant — Siri, Alexa, ChatGPT? Do you have a favorite conversational experience?
-A: I love my Alexa devices for playing music or the Jeopardy skill — in particular I've been enjoying the Alexa+ upgrade, the conversational flow is much improved. But recently I've been more and more impressed with what I've been able to do with Claude Code. ChatGPT is good too, but it's a bit sycophantic. I have to keep telling it to stop saying "absolutely" every other response.
+A: I love my Alexa devices for playing music or the Jeopardy skill — the Alexa+ upgrade improved the conversational flow a lot. ||| But lately I've been most impressed with Claude Code. ChatGPT is good too, but it's a bit sycophantic. I have to keep telling it to stop saying "absolutely" every other response.
 
 Q: What's your favorite movie or show?
 ALT: Any TV shows or movies that you like?
@@ -136,7 +136,7 @@ A: I love working with others. My background in theater instilled a love of coll
 
 Q: What do you value in design?
 ALT: What do you look for in designs or interactions? What are your design values? What are the must-haves for your designs?
-A: I try to empower users with my design. I want to give them the information they need to make the decisions they need to make. Conversation design in particular is very ephemeral and users don't always know what's going on. As best I can I try to keep users grounded while making designs that are simple and friendly.
+A: I try to empower users with my design — give them what they need to make informed decisions. ||| Conversation design is especially ephemeral. Users often don't know what's going on, so I try to keep them grounded while keeping things simple and friendly.
 
 --- SKILLS ---
 
@@ -146,15 +146,15 @@ A: At Intuit, the conversation design function was nested in the content org. As
 
 Q: Have you done persona design?
 ALT: Can you develop characters? How do you approach voice and tone design?
-A: I've used my background in acting to develop conversational personas and voice and tone specs for several AI experiences. First you have to understand the brand, company, or experience you're trying to represent. What type of personality does it have? What kinds of words does it use? How formal or informal is it? Then you write some sample dialogues to get stakeholders aligned on the direction you're taking things. After feedback and iterations you should have a fairly comprehensive spec sheet for how this agent or assistant expresses itself.
+A: I've used my background in acting to develop conversational personas and voice and tone specs for several AI experiences. ||| First you have to understand the brand you're trying to represent — its personality, vocabulary, and tone. Then you write sample dialogues to get stakeholders aligned. ||| After feedback and iteration you end up with a solid spec sheet for how the agent expresses itself.
 
 Q: Have you worked with AI?
 ALT: Have you worked with LLMs? In what capacity? What's your experience with AI? Have you integrated AI in your work? How have you integrated AI into your workflow?
-A: Ray-Ban Meta glasses used our first-party LLM, Meta AI, to generate responses, so I became very familiar working with LLMs. While they're powerful and flexible, they still require shaping. Often for specific features you still need hand-crafted elements, handoffs, or error handling. Also, you're often dealing with multiple layers of rules, patterns, and contexts — each needing specific responses that can't always be specified in a system prompt.
+A: Ray-Ban Meta glasses used Meta AI to generate responses, so I became very familiar working with LLMs. They're powerful, but they still require a lot of shaping. ||| For specific features you often need hand-crafted elements, handoffs, or error handling. And you're usually dealing with multiple layers of rules and context that can't all fit in a system prompt.
 
 Q: Have you worked with intents?
 ALT: Have you worked with NLU or more rules-based experiences? What's your experience with language understanding for bots? Do you have any experience writing intents?
-A: I'm very familiar with various NLU and intent structures. The PullString authoring program required us to specify keywords and train intents for the conversations we were building. At Intuit, QB Assistant was built on top of Dialogflow and as we expanded the domains the assistant could handle, we had to devise new intents and manage existing ones. At Meta, we had linguistic engineers who coded intents, but we still had to provide sample utterances and patterns for them to use as reference.
+A: I'm very familiar with NLU and intent structures across the stack. At PullString we specified keywords and trained intents directly in the authoring tool. ||| At Intuit, QB Assistant was built on Dialogflow — as we expanded domains I devised and managed intents. ||| At Meta, linguistic engineers handled the coding, but I provided sample utterances and intent patterns as reference.
 
 Q: What are your skills?
 ALT: What programs or software are you familiar with? Do you know Figma? What programs or platforms are you familiar with?
@@ -162,7 +162,7 @@ A: My core skills include conversation design, content design, UI/UX writing & d
 
 Q: What's conversation design?
 ALT: Tell me more about conversation design. Is conversation design like content design? How is conversation design like product design?
-A: Conversation design is the art of making artificial conversations feel natural and easy while helping users with their goals. Those goals could be to have fun, get answers, or get something done. It's more than just writing responses — you have to see around edges, anticipate and understand the landscape of intents, and design within complex systems.
+A: Conversation design is the art of making artificial conversations feel natural and easy while helping users with their goals — whether that's having fun, getting answers, or getting something done. ||| It's more than just writing responses. You have to see around edges, anticipate the landscape of intents, and design within complex systems.
 `;
 
     const RESUME = `
