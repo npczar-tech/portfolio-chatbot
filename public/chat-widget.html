@@ -226,12 +226,15 @@
       for (let i = 0; i < chunks.length; i++) {
         const chunk = chunks[i].trim();
         if (!chunk) continue;
+
+        const typingEl = addMessage(thinkingLabel(), 'typing');
+        await pause(600 + Math.random() * 600);
+        typingEl.remove();
+
         addMessage(chunk, 'bot');
+
         if (i < chunks.length - 1) {
-          await pause(300);
-          const typingEl = addMessage(thinkingLabel(), 'typing');
-          await pause(650);
-          typingEl.remove();
+          await pause(400);
         }
       }
     }
