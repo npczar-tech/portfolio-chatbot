@@ -267,13 +267,13 @@
     }
 
     async function displayBubbles(chunks) {
+      const label = thinkingLabel();
       for (let i = 0; i < chunks.length; i++) {
         const chunk = chunks[i].trim();
         if (!chunk) continue;
 
         if (i === 0) {
-          // Brief thinking before first bubble — user just submitted
-          const typingEl = addMessage(thinkingLabel(), 'typing');
+          const typingEl = addMessage(label, 'typing');
           await pause(600 + Math.random() * 600);
           typingEl.remove();
         }
@@ -281,8 +281,7 @@
         addMessage(chunk, 'bot');
 
         if (i < chunks.length - 1) {
-          // Reading-duration thinking between bubbles — proportional to words just read
-          const readingTypingEl = addMessage(thinkingLabel(), 'typing');
+          const readingTypingEl = addMessage(label, 'typing');
           await pause(readingPause(chunk));
           readingTypingEl.remove();
         }
