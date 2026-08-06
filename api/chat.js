@@ -16,11 +16,13 @@ export default async function handler(req, res) {
 
     if (isWeatherQuestion) {
       const weatherResponse = await fetch(
-        'https://api.open-meteo.com/v1/forecast?latitude=32.2226&longitude=-110.9747&current=temperature_2m,weathercode&temperature_unit=fahrenheit'
+        'https://api.open-meteo.com/v1/forecast?latitude=32.2226&longitude=-110.9747&current=temperature_2m,weathercode&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FPhoenix'
       );
       const weatherData = await weatherResponse.json();
-      const temp = weatherData.current.temperature_2m;
-      weatherContext = `Current temperature in Tucson: ${temp}°F.`;
+      const current = weatherData.current.temperature_2m;
+      const high = weatherData.daily.temperature_2m_max[0];
+      const low = weatherData.daily.temperature_2m_min[0];
+      weatherContext = `Current temperature in Tucson: ${current}°F. Today's forecast: high of ${high}°F, low of ${low}°F.`;
     }
 
     const QA_PAIRS = `
