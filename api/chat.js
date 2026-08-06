@@ -261,7 +261,7 @@ ${RESUME}`;
     }
 
     const data = await response.json();
-    const reply = data.content[0].text.replace(/\s*—\s*/g, ' ');
+    const reply = data.content[0].text.replace(/\s*—\s*/g, ', ');
     res.status(200).json({ reply });
 
   } catch (error) {
