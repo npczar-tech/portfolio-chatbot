@@ -222,6 +222,12 @@
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    function readingPause(text) {
+      const words = text.trim().split(/\s+/).length;
+      const ms = (words / 3) * 1000; // ~180 wpm reading pace
+      return Math.max(1500, ms * (0.85 + Math.random() * 0.3)); // ±15% jitter, min 1.5s
+    }
+
     async function displayBubbles(chunks) {
       for (let i = 0; i < chunks.length; i++) {
         const chunk = chunks[i].trim();
@@ -234,7 +240,7 @@
         addMessage(chunk, 'bot');
 
         if (i < chunks.length - 1) {
-          await pause(400);
+          await pause(readingPause(chunk));
         }
       }
     }
