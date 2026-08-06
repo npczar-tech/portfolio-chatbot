@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Faunces:opsz,wght@6..72,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Faunces', serif;
+      font-weight: 400;
+      background: transparent;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 12px;
+      border-radius: 20px;
+      border: 4px solid #0d2333;
+      box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.45),
+        inset 1px 0 0 rgba(150, 200, 240, 0.08);
+      background: rgba(13, 35, 51, 0.1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 16px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scrollbar-width: none;
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20px,
+        black calc(100% - 28px),
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20px,
+        black calc(100% - 28px),
+        transparent 100%
+      );
+    }
+
+    #messages::-webkit-scrollbar {
+      display: none;
+    }
+
+    .message {
+      max-width: 82%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      line-height: 1.55;
+      font-size: 14px;
+      word-wrap: break-word;
+    }
+
+    .message.bot {
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.1);
+      color: #e8edf0;
+      border-bottom-left-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background: #c4522a;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message.typing {
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.07);
+      color: #7899ad;
+      font-style: italic;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-bottom-left-radius: 4px;
+    }
+
+    .message.system {
+      align-self: center;
+      background: none;
+      color: #c4522a;
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+      padding: 4px 8px;
+    }
+
+    #input-area {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px 14px;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+
+    #user-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    #user-input:focus {
+      border-color: rgba(196, 82, 42, 0.6);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    #send-btn {
+      background: #c4522a;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    #send-btn:hover {
+      background: #d95e32;
+    }
+
+    #send-btn:active {
+      transform: scale(0.94);
+    }
+
+    #send-btn:disabled {
+      background: rgba(196, 82, 42, 0.3);
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="messages">
+      <div class="message system">Ask Nick about his background, work, or life in general.</div>
+    </div>
+    <div id="input-area">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Ask me something..."
+        autocomplete="off"
+      />
+      <button id="send-btn" aria-label="Send">&#9658;</button>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'https://portfolio-chatbot-woad.vercel.app/api/chat';
+
+    const messagesEl = document.getElementById('messages');
+    const inputEl = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    function addMessage(text, role) {
+      const div = document.createElement('div');
+      div.className = `message ${role}`;
+      div.textContent = text;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return div;
+    }
+
+    async function sendMessage() {
+      const message = inputEl.value.trim();
+      if (!message) return;
+
+      inputEl.value = '';
+      sendBtn.disabled = true;
+      addMessage(message, 'user');
+
+      const typingEl = addMessage('Typing...', 'typing');
+
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        typingEl.remove();
+
+        if (data.reply) {
+          addMessage(data.reply, 'bot');
+        } else {
+          addMessage("Sorry, I couldn't get a response. Try again!", 'bot');
+        }
+      } catch (err) {
+        typingEl.remove();
+        addMessage("Something went wrong. Please try again.", 'bot');
+      }
+
+      sendBtn.disabled = false;
+      inputEl.focus();
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
