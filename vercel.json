@@ -6,10 +6,6 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "attachment; filename=\"Nicholas_Pelczar_Resume.pdf\""
         }
       ]
     }
