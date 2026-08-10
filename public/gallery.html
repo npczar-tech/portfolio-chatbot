@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Faunces:opsz,wght@6..72,300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px 40px;
+    }
+
+    .gallery-wrap {
+      width: 100%;
+      max-width: 880px;
+      position: relative;
+    }
+
+    /* ── Card ── */
+    .slides {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 8px 32px rgba(0, 0, 0, 0.07),
+        0 24px 64px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── Slides ── */
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .slide-link {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* ── Image panel ── */
+    .slide-image {
+      flex: 0 0 50%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .slide-link:hover .slide-image img {
+      transform: scale(1.04);
+    }
+
+    /* ── Text panel ── */
+    .slide-content {
+      flex: 1;
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      border-left: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .slide-meta {
+      font-family: 'Manrope', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(13, 35, 51, 0.38);
+    }
+
+    .slide-title {
+      font-family: 'Faunces', serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #0d2333;
+      margin-top: 2px;
+    }
+
+    .slide-desc {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(13, 35, 51, 0.6);
+    }
+
+    .slide-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .slide-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(13, 35, 51, 0.06);
+      color: rgba(13, 35, 51, 0.45);
+    }
+
+    .slide.reversed .slide-link {
+      flex-direction: row-reverse;
+    }
+
+    .slide.reversed .slide-content {
+      border-left: none;
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .slide-cta {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #c4522a;
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap 0.2s ease;
+    }
+
+    .slide-link:hover .slide-cta {
+      gap: 9px;
+    }
+
+    /* ── Arrows ── */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      color: #0d2333;
+      transition: background 0.2s, box-shadow 0.2s;
+      z-index: 10;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.13);
+    }
+
+    .nav-prev { left: -18px; }
+    .nav-next { right: -18px; }
+
+    /* ── Dots ── */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(13, 35, 51, 0.18);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dot.active {
+      background: #c4522a;
+      transform: scale(1.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-wrap">
+    <div class="slides" id="slides"></div>
+    <button class="nav-btn nav-prev" id="prev" aria-label="Previous">&#8249;</button>
+    <button class="nav-btn nav-next" id="next" aria-label="Next">&#8250;</button>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <script>
+    const PROJECTS = [
+      {
+        image: 'project1.jpg',
+        meta: '2024 · Conversation Design',
+        title: 'Project Title One',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['UX', 'AI', 'Voice'],
+        url: 'https://www.nicholaspelczar.com/work/project-one'
+      },
+      {
+        image: 'project2.jpg',
+        meta: '2023 · Product Design',
+        title: 'Project Title Two',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['Product', 'Strategy'],
+        url: 'https://www.nicholaspelczar.com/work/project-two'
+      },
+      {
+        image: 'project3.jpg',
+        meta: '2023 · AI / LLM',
+        title: 'Project Title Three',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['LLM', 'Prototyping'],
+        url: 'https://www.nicholaspelczar.com/work/project-three'
+      },
+      {
+        image: 'project4.jpg',
+        meta: '2022 · Voice UX',
+        title: 'Project Title Four',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['Voice', 'Hardware'],
+        url: 'https://www.nicholaspelczar.com/work/project-four'
+      },
+      {
+        image: 'project5.jpg',
+        meta: '2022 · Conversation Design',
+        title: 'Project Title Five',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['Chatbot', 'NLU'],
+        url: 'https://www.nicholaspelczar.com/work/project-five'
+      },
+      {
+        image: 'project6.jpg',
+        meta: '2021 · UX Research',
+        title: 'Project Title Six',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['Research', 'Strategy'],
+        url: 'https://www.nicholaspelczar.com/work/project-six'
+      },
+      {
+        image: 'project7.jpg',
+        meta: '2020 · Product',
+        title: 'Project Title Seven',
+        description: 'A brief one or two line description of what this project was and the role you played in bringing it to life.',
+        tags: ['Product', 'UX'],
+        url: 'https://www.nicholaspelczar.com/work/project-seven'
+      }
+    ];
+
+    const slidesEl = document.getElementById('slides');
+    const dotsEl   = document.getElementById('dots');
+    let current = 0;
+
+    PROJECTS.forEach((p, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide' + (i === 0 ? ' active' : '') + (i % 2 === 1 ? ' reversed' : '');
+      slide.innerHTML = `
+        <a class="slide-link" href="${p.url}">
+          <div class="slide-image">
+            <img src="${p.image}" alt="${p.title}">
+          </div>
+          <div class="slide-content">
+            <div class="slide-meta">${p.meta}</div>
+            <h2 class="slide-title">${p.title}</h2>
+            <p class="slide-desc">${p.description}</p>
+            <div class="slide-tags">${p.tags.map(t => `<span class="slide-tag">${t}</span>`).join('')}</div>
+            <div class="slide-cta">View case study →</div>
+          </div>
+        </a>`;
+      slidesEl.appendChild(slide);
+
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.dot');
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + PROJECTS.length) % PROJECTS.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+  </script>
+</body>
+</html>

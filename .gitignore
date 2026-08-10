@@ -9,6 +9,7 @@ credentials.json
 *.py
 *.html
 !public/chat-widget.html
+!public/gallery.html
 !public/resume.pdf
 !public/resume-preview.png
 !public/resume-viewer.html
