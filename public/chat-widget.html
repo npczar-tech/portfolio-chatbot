@@ -396,9 +396,9 @@
         const chunk = chunks[i].trim();
         if (!chunk) continue;
 
-        const hasResumeLink = chunk.includes('nicholaspelczar.com/resume');
+        const hasResumeLink = chunk.includes('[RESUME]');
         const displayChunk = hasResumeLink
-          ? chunk.replace(/\[([^\]]+)\]\(https?:\/\/[^)]*nicholaspelczar\.com\/resume[^)]*\)/g, '$1').replace(/https?:\/\/[^\s]*nicholaspelczar\.com\/resume[^\s]*/g, '').trim()
+          ? chunk.replace('[RESUME]', '').trim()
           : chunk;
         addMessage(displayChunk, 'bot');
 
