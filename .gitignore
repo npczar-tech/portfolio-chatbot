@@ -6,6 +6,7 @@ credentials.json
 *.md
 *.ttf
 *.jpg
+!public/*.jpg
 *.py
 *.html
 !public/chat-widget.html
