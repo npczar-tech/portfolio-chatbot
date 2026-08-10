@@ -123,6 +123,43 @@
       padding: 4px 8px;
     }
 
+    .resume-card {
+      align-self: flex-start;
+      max-width: 160px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .resume-card a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .resume-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .resume-card-footer {
+      padding: 7px 12px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(150, 200, 230, 0.6);
+    }
+
     #input-area {
       display: flex;
       flex-direction: column;
@@ -295,8 +332,21 @@
 
     startPlaceholderCycle();
 
+    function addResumeCard() {
+      const div = document.createElement('div');
+      div.className = 'resume-card';
+      div.innerHTML = `
+        <a href="https://www.nicholaspelczar.com/resume" target="_blank" rel="noopener">
+          <img src="https://api.nicholaspelczar.com/resume-preview.png" alt="Resume preview">
+          <div class="resume-card-footer">View Resume ↗</div>
+        </a>`;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
     function linkify(text) {
-      return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">$1</a>');
+      text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">$1</a>');
+      return text.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">$1</a>');
     }
 
     function addMessage(text, role) {
@@ -346,7 +396,16 @@
         const chunk = chunks[i].trim();
         if (!chunk) continue;
 
-        addMessage(chunk, 'bot');
+        const hasResumeLink = chunk.includes('nicholaspelczar.com/resume');
+        const displayChunk = hasResumeLink
+          ? chunk.replace(/\[([^\]]+)\]\(https?:\/\/[^)]*nicholaspelczar\.com\/resume[^)]*\)/g, '$1').replace(/https?:\/\/[^\s]*nicholaspelczar\.com\/resume[^\s]*/g, '').trim()
+          : chunk;
+        addMessage(displayChunk, 'bot');
+
+        if (hasResumeLink) {
+          await pause(300);
+          addResumeCard();
+        }
 
         if (i < chunks.length - 1) {
           const readingTypingEl = addMessage(thinkingLabel(), 'typing');
