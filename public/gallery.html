@@ -90,6 +90,7 @@
       justify-content: center;
       gap: 10px;
       border-left: 1px solid rgba(0, 0, 0, 0.06);
+      position: relative;
     }
 
     .slide-meta {
@@ -146,20 +147,18 @@
       border-right: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .slide-cta {
-      font-family: 'Manrope', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #c4522a;
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: gap 0.2s ease;
+    .slide-eye {
+      position: absolute;
+      bottom: 24px;
+      left: 40px;
+      color: rgba(66, 87, 101, 0.35);
+      transition: color 0.2s ease, transform 0.2s ease;
+      line-height: 0;
     }
 
-    .slide-link:hover .slide-cta {
-      gap: 9px;
+    .slide-link:hover .slide-eye {
+      color: rgba(66, 87, 101, 0.7);
+      transform: scale(1.12);
     }
 
     /* ── Arrows ── */
@@ -292,7 +291,12 @@
             <h2 class="slide-title">${p.title}</h2>
             <p class="slide-desc">${p.description}</p>
             <div class="slide-tags">${p.tags.map(t => `<span class="slide-tag">${t}</span>`).join('')}</div>
-            <div class="slide-cta">View case study →</div>
+            <div class="slide-eye">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
           </div>
         </a>`;
       slidesEl.appendChild(slide);
