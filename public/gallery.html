@@ -44,7 +44,6 @@
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 0.45s ease;
       pointer-events: none;
     }
 
@@ -272,7 +271,7 @@
       const slide = document.createElement('div');
       slide.className = 'slide' + (i === 0 ? ' active' : '') + (i % 2 === 1 ? ' reversed' : '');
       slide.innerHTML = `
-        <a class="slide-link" href="${p.url}">
+        <a class="slide-link" href="${p.url}" target="_top">
           <div class="slide-image">
             <img src="${p.image}" alt="${p.title}">
           </div>
@@ -295,11 +294,42 @@
     const dots   = document.querySelectorAll('.dot');
 
     function goTo(n) {
-      slides[current].classList.remove('active');
+      const total = PROJECTS.length;
+      const next  = (n + total) % total;
+      if (next === current) return;
+
+      let dir = next > current ? 1 : -1;
+      if (current === total - 1 && next === 0) dir = 1;
+      if (current === 0 && next === total - 1) dir = -1;
+
+      const outEl = slides[current];
+      const inEl  = slides[next];
+
       dots[current].classList.remove('active');
-      current = (n + PROJECTS.length) % PROJECTS.length;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
+      dots[next].classList.add('active');
+      current = next;
+
+      // Position incoming slide off-screen, then animate in
+      inEl.style.transition = 'none';
+      inEl.style.transform  = `translateX(${dir * 40}px)`;
+      inEl.style.opacity    = '0';
+      inEl.classList.add('active');
+
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        inEl.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+        inEl.style.transform  = 'translateX(0)';
+        inEl.style.opacity    = '1';
+      }));
+
+      // Slide outgoing in the opposite direction
+      outEl.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+      outEl.style.transform  = `translateX(${-dir * 40}px)`;
+      outEl.style.opacity    = '0';
+
+      setTimeout(() => {
+        outEl.classList.remove('active');
+        outEl.style.cssText = '';
+      }, 500);
     }
 
     document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
