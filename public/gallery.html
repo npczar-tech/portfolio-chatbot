@@ -287,7 +287,7 @@
 
       slide.querySelector('.slide-link').addEventListener('click', (e) => {
         e.preventDefault();
-        window.parent.postMessage({ navigate: p.url }, '*');
+        window.open(p.url, '_blank');
       });
 
       const dot = document.createElement('span');
