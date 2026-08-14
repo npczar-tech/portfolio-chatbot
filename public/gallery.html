@@ -271,7 +271,7 @@
       const slide = document.createElement('div');
       slide.className = 'slide' + (i === 0 ? ' active' : '') + (i % 2 === 1 ? ' reversed' : '');
       slide.innerHTML = `
-        <a class="slide-link" href="${p.url}" target="_top">
+        <a class="slide-link" href="${p.url}">
           <div class="slide-image">
             <img src="${p.image}" alt="${p.title}">
           </div>
@@ -283,6 +283,11 @@
           </div>
         </a>`;
       slidesEl.appendChild(slide);
+
+      slide.querySelector('.slide-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.parent.postMessage({ navigate: p.url }, '*');
+      });
 
       const dot = document.createElement('span');
       dot.className = 'dot' + (i === 0 ? ' active' : '');
