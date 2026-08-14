@@ -311,7 +311,7 @@
 
       // Position incoming slide off-screen, then animate in
       inEl.style.transition = 'none';
-      inEl.style.transform  = `translateX(${dir * 40}px)`;
+      inEl.style.transform  = `translateX(${dir * 80}px)`;
       inEl.style.opacity    = '0';
       inEl.classList.add('active');
 
@@ -323,7 +323,7 @@
 
       // Slide outgoing in the opposite direction
       outEl.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-      outEl.style.transform  = `translateX(${-dir * 40}px)`;
+      outEl.style.transform  = `translateX(${-dir * 80}px)`;
       outEl.style.opacity    = '0';
 
       setTimeout(() => {
