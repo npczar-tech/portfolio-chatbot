@@ -172,6 +172,25 @@
       gap: 8px;
     }
 
+    .input-wrap {
+      position: relative;
+      flex: 1;
+    }
+
+    #ghost-text {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 15px;
+      font-family: 'Faunces', serif;
+      white-space: nowrap;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
     #disclaimer {
       text-align: center;
       font-family: 'Manrope', sans-serif;
@@ -183,7 +202,7 @@
     }
 
     #user-input {
-      flex: 1;
+      width: 100%;
       padding: 10px 16px;
       min-height: 52px;
       background: rgba(255, 255, 255, 0.08);
@@ -241,12 +260,14 @@
     </div>
     <div id="input-area">
       <div class="input-row">
-        <input
-          type="text"
-          id="user-input"
-          placeholder="Ask me about conversation design..."
-          autocomplete="off"
-        />
+        <div class="input-wrap">
+          <input
+            type="text"
+            id="user-input"
+            autocomplete="off"
+          />
+          <div id="ghost-text">Ask me about conversation design...</div>
+        </div>
         <button id="send-btn" aria-label="Send">&#9658;</button>
       </div>
       <div id="disclaimer">I may make unintended leaps.</div>
@@ -258,6 +279,7 @@
 
     const messagesEl = document.getElementById('messages');
     const inputEl = document.getElementById('user-input');
+    const ghostEl = document.getElementById('ghost-text');
     const sendBtn = document.getElementById('send-btn');
     const conversationHistory = [];
 
@@ -284,7 +306,7 @@
       if (placeholderAnimating || inputEl.value) return;
       placeholderAnimating = true;
 
-      const current = inputEl.placeholder;
+      const current = ghostEl.textContent;
       const nextIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
       const next = PLACEHOLDER_SUGGESTIONS[nextIndex];
 
@@ -297,7 +319,7 @@
       // Delete back to the divergence point
       for (let i = current.length; i > commonLen; i--) {
         if (inputEl.value) { placeholderAnimating = false; return; }
-        inputEl.placeholder = current.slice(0, i);
+        ghostEl.textContent = current.slice(0, i);
         await pause(30);
       }
 
@@ -306,7 +328,7 @@
       // Type the new suffix
       for (let i = commonLen; i <= next.length; i++) {
         if (inputEl.value) { placeholderAnimating = false; return; }
-        inputEl.placeholder = next.slice(0, i);
+        ghostEl.textContent = next.slice(0, i);
         await pause(55);
       }
 
@@ -327,8 +349,13 @@
     }
 
     inputEl.addEventListener('input', () => {
-      if (inputEl.value) stopPlaceholderCycle();
-      else startPlaceholderCycle();
+      if (inputEl.value) {
+        stopPlaceholderCycle();
+        ghostEl.style.display = 'none';
+      } else {
+        ghostEl.style.display = '';
+        startPlaceholderCycle();
+      }
     });
 
     startPlaceholderCycle();
@@ -421,6 +448,7 @@
       if (!message) return;
 
       inputEl.value = '';
+      ghostEl.style.display = 'none';
       stopPlaceholderCycle();
       sendBtn.disabled = true;
       addMessage(message, 'user');
@@ -453,6 +481,7 @@
 
       sendBtn.disabled = false;
       inputEl.focus();
+      ghostEl.style.display = '';
       startPlaceholderCycle();
     }
 
