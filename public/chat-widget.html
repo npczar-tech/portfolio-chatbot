@@ -196,6 +196,11 @@
       pointer-events: none;
     }
 
+    #ghost-inner {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
     #disclaimer {
       text-align: center;
       font-family: 'Manrope', sans-serif;
@@ -271,7 +276,7 @@
             id="user-input"
             autocomplete="off"
           />
-          <div id="ghost-text">Ask me about conversation design...</div>
+          <div id="ghost-text"><span id="ghost-inner">Ask me about conversation design...</span></div>
         </div>
         <button id="send-btn" aria-label="Send">&#9658;</button>
       </div>
@@ -285,6 +290,7 @@
     const messagesEl = document.getElementById('messages');
     const inputEl = document.getElementById('user-input');
     const ghostEl = document.getElementById('ghost-text');
+    const ghostInner = document.getElementById('ghost-inner');
     const sendBtn = document.getElementById('send-btn');
     const conversationHistory = [];
 
@@ -311,7 +317,7 @@
       if (placeholderAnimating || inputEl.value) return;
       placeholderAnimating = true;
 
-      const current = ghostEl.textContent;
+      const current = ghostInner.textContent;
       const nextIndex = (placeholderIndex + 1) % PLACEHOLDER_SUGGESTIONS.length;
       const next = PLACEHOLDER_SUGGESTIONS[nextIndex];
 
@@ -324,7 +330,8 @@
       // Delete back to the divergence point
       for (let i = current.length; i > commonLen; i--) {
         if (inputEl.value) { placeholderAnimating = false; return; }
-        ghostEl.textContent = current.slice(0, i);
+        ghostInner.textContent = current.slice(0, i);
+        scrollGhost();
         await pause(30);
       }
 
@@ -333,7 +340,8 @@
       // Type the new suffix
       for (let i = commonLen; i <= next.length; i++) {
         if (inputEl.value) { placeholderAnimating = false; return; }
-        ghostEl.textContent = next.slice(0, i);
+        ghostInner.textContent = next.slice(0, i);
+        scrollGhost();
         await pause(55);
       }
 
@@ -341,6 +349,11 @@
       if (!inputEl.value) {
         placeholderTimeout = setTimeout(cyclePlaceholder, 6000);
       }
+    }
+
+    function scrollGhost() {
+      const overflow = ghostInner.offsetWidth - ghostEl.clientWidth;
+      ghostInner.style.transform = overflow > 0 ? `translateX(-${overflow}px)` : 'translateX(0)';
     }
 
     function startPlaceholderCycle() {
