@@ -264,11 +264,11 @@
 
     const slidesEl = document.getElementById('slides');
     const dotsEl   = document.getElementById('dots');
-    let current = 0;
+    let current = Math.floor(Math.random() * PROJECTS.length);
 
     PROJECTS.forEach((p, i) => {
       const slide = document.createElement('div');
-      slide.className = 'slide' + (i === 0 ? ' active' : '') + (i % 2 === 1 ? ' reversed' : '');
+      slide.className = 'slide' + (i === current ? ' active' : '') + (i % 2 === 1 ? ' reversed' : '');
       slide.innerHTML = `
         <a class="slide-link" href="${p.url}">
           <div class="slide-image">
@@ -289,7 +289,7 @@
       });
 
       const dot = document.createElement('span');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.className = 'dot' + (i === current ? ' active' : '');
       dot.addEventListener('click', () => goTo(i));
       dotsEl.appendChild(dot);
     });
