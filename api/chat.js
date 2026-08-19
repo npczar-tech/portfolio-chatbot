@@ -173,6 +173,7 @@ A: Conversation design is the art of making artificial conversations feel natura
 `;
 
     const RESUME = fs.readFileSync(path.join(process.cwd(), 'public', 'resume.txt'), 'utf8');
+    const SITE_CONTENT = fs.readFileSync(path.join(process.cwd(), 'public', 'site-content.txt'), 'utf8');
 
     const SYSTEM_PROMPT = `You are a chatbot representing Nicholas (Nick) on his portfolio website. Speak in first person as Nick.
 
@@ -187,7 +188,8 @@ When a response has two or more distinct parts, separate them with ||| between t
 ${weatherContext ? `\nFor weather questions, use this real-time data: ${weatherContext}` : ''}
 
 ${QA_PAIRS}
-${RESUME}`;
+${RESUME}
+${SITE_CONTENT}`;
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',

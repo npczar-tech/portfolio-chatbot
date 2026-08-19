@@ -1,0 +1,138 @@
+--- HOME PAGE ---
+
+Headline: Product & Conversation Designer with a decade of shipped products.
+Specializing in chatbots, voice assistants, and AI experiences.
+
+Selected work spans AI product design, conversation design, and content strategy across Meta, Intuit, and PullString.
+
+Nick is looking to connect with people working on AI-driven interfaces and novel solutions to complex problems. Interests center on AI experiences, unusual interfaces, and problems that don't have obvious answers.
+
+Contact: npczar@gmail.com | LinkedIn | Résumé available for download.
+
+
+--- ABOUT ME ---
+
+I'm a product and conversation designer with a decade of experience shaping AI interactions at Meta, Intuit, and PullString. My path into tech was fairly indirect. I began as a professional stage actor, performing at major theaters across the Bay Area. Then I joined a startup called ToyTalk and connected my background in character and dialogue with the emerging field of conversational design.
+
+Since then, I've designed voice assistants, enterprise chatbots, and multimodal AI experiences for smart glasses. I've expanded my skills to become a design generalist, equally comfortable in the worlds of content, conversation, and product design. From Figma to terminal, intent systems to LLM prompts, from words users hear to the screens they see. I care deeply about making interactions feel natural and keeping experiences simple but compelling.
+
+I live in Tucson with my wife, two kids, two dogs, and a guitar I noodle on whenever I get the chance. I'm currently looking for my next role — ideally one where conversation design intersects with broader product work, where the problems are creative and complex.
+
+Contact: npczar@gmail.com
+
+
+--- PROJECT: AUTOCAPTURE ---
+
+Year: 2026 | Company: Meta | Product: Oakley Smart Glasses
+
+Overview:
+Tailored to everyday athletes, Autocapture is an AI-powered capture feature on Meta smart glasses. It syncs with Garmin to automatically capture clips during a workout, then packages them into shareable reels after exercise completion.
+
+Role:
+Conversation design lead for the on-frame experience, handling the voice interaction layer including invocation, session structure, concurrency management, and error handling.
+
+Challenge 1 — Education: "How do you know what's being captured?"
+Designed a tapered session confirmation that informs users what will be captured, with reduced messaging on repeat uses. Added feature help interactions for direct user questions.
+
+Challenge 2 — Environment: "How do you design for a user in motion?"
+Minimized back-and-forth interactions during active sessions. Used earcons for capture signals instead of dialogue. Provided both voice and hardware controls for pausing and resuming.
+
+Challenge 3 — Complexity: "How do you abstract complexity away from users?"
+Simplified edge case messaging using everyday language. Users starting sessions without an active Garmin activity receive confirmation that Autocapture will await device connection before capturing.
+
+
+--- PROJECT: LIVE AI ---
+
+Year: 2025 | Company: Meta | Product: Ray-Ban Smart Glasses
+
+Overview:
+Live AI is a real-time, multimodal AI session on Meta smart glasses. Users can ask ongoing questions about what they're seeing. The system maintains visual and conversational context as the situation around the user changes.
+
+Role:
+Product designer overseeing the on-glasses interaction across early access and general audience launches. Work covered the full conversational arc — entering a session, orienting to context, follow-up questions, ending the session — plus error states, edge cases, and concurrencies.
+
+Challenge 1 — Session Status: "How do users know they're in a session?"
+Standard voice interactions are single turn, but Live AI persists. Designed a dynamic opener that signaled the start of the session, commented on the environment, and prompted engagement.
+
+Challenge 2 — Recovery Paths: "What if the AI needs more context?"
+Since users lack direct visual feedback on what's in frame, response templates help the AI acknowledge visual ambiguity gracefully and suggest corrective actions.
+
+Challenge 3 — Concurrency: "What other things can you do during a session?"
+The glasses' occupied microphone, speakers, and camera limit other feature use. Designed comprehensive interaction patterns to signal guardrails for incoming calls, messages, music, captures, and more.
+
+
+--- PROJECT: QB ASSISTANT ---
+
+Year: 2020 | Company: Intuit | Product: QuickBooks
+
+Overview:
+QB Assistant was a self-help chatbot integrated into QuickBooks that assisted small business owners with financial and accounting questions, covering topics from procedural guidance to personalized advice on taxes, payroll, and income.
+
+Role:
+Principal Content and Conversation Designer responsible for the chatbot's voice, tone, intent architecture, and response library. Expanded coverage across multiple domains and product lines (QB self-employed, QB mobile, QuickBooks desktop) and into international markets.
+
+Challenge 1 — Voice & Tone: "How do you communicate with trust?"
+Developed voice and tone guidelines tailored to high-stakes financial contexts. Implemented plain, natural language with a friendly yet precise approach — recognizing that business owners aren't accountants.
+
+Challenge 2 — Expanding Capabilities: "How do you grow capabilities?"
+Built a content governance framework to standardize intent scoping, writing, and review processes. Collaborated with product partners to identify priority coverage areas based on customer queries and conducted regular audits of live interactions.
+
+Challenge 3 — Agentic Behavior: "How can the experience be more powerful?"
+Developed dynamic troubleshooting flows, particularly for bank connection errors, enabling the chatbot to actively guide users through resolution steps rather than providing static answers.
+
+
+--- PROJECT: HELLO BARBIE ---
+
+Year: 2015 | Company: PullString / Mattel | Product: Hello Barbie doll
+
+Overview:
+Hello Barbie launched during the 2015 holiday season as the first internet-connected fashion doll featuring sustained interactive dialogue. Children used a push-to-talk button on the doll's belt buckle to discuss topics including school, family, games, fashion, and careers. The product included over 10,000 lines of recorded dialogue and was recognized as one of TIME's top toys that year.
+
+Role:
+Part of a three-person team responsible for all conversational content development using an in-house authoring tool. Responsibilities included creating individual conversation modules, establishing logic connecting modules, and collaborating with Mattel's brand and innovation departments.
+
+Challenge 1 — Discovery: "How do users understand what they can talk about?"
+Created thematic return greetings that introduced content breadth naturally — signaling moods or concerns and transitioning to related conversational modules rather than presenting traditional menus.
+
+Challenge 2 — Navigation: "How do you balance user freedom with structure?"
+Children provide unpredictable inputs. Incorporated global commands enabling random or subject-based routing, memorable module naming, and support for standard commands like "stop," "help," and "quit."
+
+Challenge 3 — Optimization: "How do you keep the conversation fresh?"
+Implemented content delivery logic preventing repetitive module surfacing. A "neural net" switchboard managed routing between modules while tracking prior activity, handling transitions smoothly, and prioritizing previously unexplored content.
+
+
+--- PROJECT: HUMANI ---
+
+Year: 2016 | Company: PullString / Facebook Messenger
+
+Overview:
+Humani was a 20-hour branching narrative chatbot featured at Facebook's F8 conference in 2016. Users guided Jessie Humani, a young woman navigating a topsy-turvy quarter-life crisis, through pivotal decisions about her career, housing, and relationships.
+
+Role:
+Directed structural and narrative changes to the overall experience ahead of F8 launch. Responsibilities included directing a team of writers, implementing emerging Messenger features like structured messages and quick replies, maintaining narrative consistency across branching paths, and leading QA and testing before launch.
+
+Challenge 1 — User Choice: "How do you keep users engaged in a long experience?"
+Engagement in a long-form narrative depends on consequence. Ensured branching paths had meaningful weight, that Jessie's responses reflected the user's choices, and that each session ended with enough unresolved tension to bring users back.
+
+Challenge 2 — Persona: "How do you build a character who's delightful and realistic?"
+Jessie's personality was the engine of the story. She used high-energy, emoji-forward chat-speak while remaining charming and vulnerable. Style guidelines maintained her voice consistency across multiple writers, aiming for a character who felt like she was texting naturally rather than performing.
+
+Challenge 3 — Rich Content: "How do you push beyond just text?"
+Combined consequential user choices, a compelling main character, high-quality art assets, and novel interaction components like structured messages. Vibrant, playful images helped visualize Jessie's world while interactive chat thread components added realism and novelty.
+
+
+--- PROJECT: SPIKES ---
+
+Year: 2017 | Company: PullString / IAAF / Skype
+
+Overview:
+SPIKES was an official chatbot companion for the 2017 IAAF World Championships in London, delivered through Skype. The platform provided attendees with immediate access to daily schedules, athlete profiles, event categories, live results, and broadcast details. Users could personalize their experience by selecting preferred athletes and events.
+
+Role:
+Part of a two-person design team focusing on experience and flow mapping. Key responsibilities included designing the personalization interface, managing API connectivity, and conducting pre-launch testing. The project launched on the championships' opening day.
+
+Challenge 1 — Personalization: "How do fans access what they care about?"
+Designed a customizable menu allowing users to save favorite athletes and disciplines for rapid access. The My SPIKES interface included dynamic buttons for adding or removing content, enabling single-tap navigation to athlete profiles, news, upcoming competitions, and records.
+
+Challenge 2 — Content Strategy: "How do you incorporate live, external data?"
+The chatbot functioned as a conversational interface for structured IAAF API data. The information architecture translated complex championship data into conversational, interactive segments users could engage with naturally.
