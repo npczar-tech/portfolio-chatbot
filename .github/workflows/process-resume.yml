@@ -1,0 +1,31 @@
+name: Process Resume
+
+on:
+  push:
+    paths:
+      - 'public/resume.pdf'
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install poppler
+        run: sudo apt-get install -y poppler-utils
+
+      - name: Extract text
+        run: pdftotext public/resume.pdf public/resume.txt
+
+      - name: Generate thumbnail
+        run: pdftoppm -png -r 96 -singlefile public/resume.pdf public/resume-preview
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/resume.txt public/resume-preview.png
+          git diff --staged --quiet || git commit -m "Auto-generate resume.txt and resume-preview.png from resume.pdf"
+          git push

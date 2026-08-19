@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -169,60 +172,7 @@ ALT: Tell me more about conversation design. Is conversation design like content
 A: Conversation design is the art of making artificial conversations feel natural and easy while helping users with their goals — whether that's having fun, getting answers, or getting something done. ||| It's more than just writing responses. You have to see around edges, anticipate the landscape of intents, and design within complex systems.
 `;
 
-    const RESUME = `
---- RESUME ---
-
-Nicholas Pelczar | npczar@gmail.com | 415-205-7743
-AI Conversation Designer | UX/UI Writer | Product Designer
-
-SUMMARY
-AI conversation design specialist and content designer with a decade of shipped experiences across voice assistants, chatbots, multimodal wearables, and agentic products at Meta, Intuit, and PullString. Expert at translating complex, regulated-domain concepts into clear, actionable content users can act on. Equally at home in Figma, Docs, or Terminal, crafting both the words and systems behind user interactions.
-
-- Systems-level content thinking: built voice and tone frameworks, taxonomies, prompts, flows, and response templates to make AI interactions feel natural.
-- Technically fluent in AI architecture: shaped multiple multimodal AI experiences on smart glasses and enterprise chatbots, launching new products and features in high-urgency, ambiguous spaces.
-- Practiced cross-functional partner: working closely across disciplines, with a track record of defining new product spaces and evangelizing content and conversation disciplines across organizations.
-
-EXPERIENCE
-
-META | Remote | 2021-2026
-Senior Product & Conversation Designer
-Led conversation and voice UX design for AI smart glasses features and experiences across multimodal, live AI, autocapture, QR payments and more. Shaped agent identity, voice and tone. Promoted with consistent Exceeded Expectations ratings across review cycles.
-Projects:
-- Multimodal & Live AI: Lead CxD crafting end-to-end voice conversation flows, invocation systems, and NLU utterances. Co-led Early Access and General Audience launches on Ray-Ban Meta glasses, defining session openers, error and edge cases, and TTS responses tuned from user and dogfooding feedback.
-- Autocapture: Conversation design lead for the on-frame Autocapture experience integrating a constellation of devices and leveraging multimodal AI to automatically capture high-interest moments.
-- CxD Mentorship: Scaled conversation design knowledge across Meta Reality Labs by mentoring senior designers, co-presenting an RL-wide Design Talk on Conversation Design, and built a VUI Resource Hub to onboard Voice PMs.
-
-INTUIT | Mountain View, CA | 2018-2021
-Principal Content & Conversation Designer
-Led content and conversation design strategy for QB Assistant, translating complex financial concepts into clear, compliant, self-help experiences for small business owners. Responsible for persona, voice and tone, conversational flows, content, and intents.
-Projects:
-- QB Assistant: Grew the capabilities and reach of the in-product chatbot with a focus on self-help, product insights, and proactivity.
-- QuickBooks: Content strategy and design for various QuickBooks flows and experiences.
-- Thought Leader: Evangelized the conversation design discipline across Intuit leading workshops, persona development sessions, and content salons.
-
-PULLSTRING | San Francisco, CA | 2015-2018
-UX Writer & Designer
-Wrote, coded, and designed 20+ human-machine interactive products as writer, coder, UX designer, content strategist, and voice director.
-Projects:
-- Mattel: Designed neural network, coded conversation modules, and wrote 10,000 lines of content for the first interactive Barbie, voted #2 TIME Toy of the Year.
-- Google Home & Alexa: Built two family-friendly kids games. Led end-to-end production of a gameshow skill; redesigned intent recognition system for SpongeBob Challenge.
-- Humani: Co-created Jessie Humani, a 20-hour interactive SMS game featured at 2016 F8 Conference; led branching narrative design, writing, coding, and QA.
-
-EXPERTISE
-Human-Computer Interaction, Microcopy & UI Writing, User Flow & IA, Multimodal Interaction Design, Content Design Systems, Glossary Development, AI Output Evaluation, Onboarding & Error Design
-Conversation Design: NLP/ASR/TTS stack fluency, Intent & Rules Engines, Intent System Scripting, Logic-Based Conditions, Response Templates, Prompt Engineering, System Prompt Writing, Agent Behavior Design
-Content Development: Storyboards, Scripts, Copy, Dialogue, Persona Decks
-
-SOFTWARE
-Claude Code, ChatGPT, Meta AI, Figma, After Effects, Illustrator, Photoshop, Google Suite, MS Office
-
-EDUCATION
-A.C.T. Theater School — MFA Acting
-University of Virginia — BA English, Minor Studio Art
-
-BACKGROUND
-10-year career as a full-time stage actor in over 40 shows in the US & Canada, including lead roles in award-winning plays at top Bay Area theaters.
-`;
+    const RESUME = fs.readFileSync(path.join(process.cwd(), 'public', 'resume.txt'), 'utf8');
 
     const SYSTEM_PROMPT = `You are a chatbot representing Nicholas (Nick) on his portfolio website. Speak in first person as Nick.
 
