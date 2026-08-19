@@ -239,8 +239,10 @@ ${SITE_CONTENT}`;
           }]
         })
       });
-      const airtableData = await airtableRes.json();
-      console.log('Airtable response:', airtableRes.status, JSON.stringify(airtableData));
+      if (!airtableRes.ok) {
+        const err = await airtableRes.json();
+        console.error('Airtable error:', airtableRes.status, JSON.stringify(err));
+      }
     } catch (logErr) {
       console.error('Airtable logging failed:', logErr);
     }
