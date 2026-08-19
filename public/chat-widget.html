@@ -152,9 +152,8 @@
 
     .resume-card img {
       width: 100%;
-      aspect-ratio: 8.5 / 11;
+      height: auto;
       display: block;
-      object-fit: cover;
     }
 
     .resume-card-footer {
@@ -385,7 +384,7 @@
       div.className = 'resume-card';
       div.innerHTML = `
         <a href="https://www.nicholaspelczar.com/resume" target="_blank" rel="noopener">
-          <img src="https://api.nicholaspelczar.com/resume-preview.png" alt="Resume preview">
+          <img src="https://api.nicholaspelczar.com/resume-preview.png" alt="Resume preview" width="320" height="414" loading="eager">
           <div class="resume-card-footer">View Resume ↗</div>
         </a>`;
       messagesEl.appendChild(div);
