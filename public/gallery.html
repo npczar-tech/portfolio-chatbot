@@ -11,8 +11,9 @@
       background: transparent;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      align-items: stretch;
+      height: 100vh;
+      overflow: hidden;
       padding: 16px 40px;
     }
 
@@ -20,13 +21,15 @@
       width: 100%;
       max-width: 880px;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ── Card ── */
     .slides {
       position: relative;
       width: 100%;
-      aspect-ratio: 2 / 1;
+      flex: 1;
       border-radius: 20px;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.55);
