@@ -463,13 +463,16 @@
       }
     }
 
+    let isResponding = false;
+
     async function sendMessage() {
       const message = inputEl.value.trim();
-      if (!message) return;
+      if (!message || isResponding) return;
 
       inputEl.value = '';
       ghostEl.style.display = 'none';
       stopPlaceholderCycle();
+      isResponding = true;
       sendBtn.disabled = true;
       addMessage(message, 'user');
       conversationHistory.push({ role: 'user', content: message });
@@ -499,6 +502,7 @@
         addMessage("Something went wrong. Please try again.", 'bot');
       }
 
+      isResponding = false;
       sendBtn.disabled = false;
       inputEl.focus();
       ghostEl.style.display = '';
