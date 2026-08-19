@@ -288,6 +288,7 @@
 
   <script>
     const API_URL = 'https://api.nicholaspelczar.com/api/chat';
+    const SESSION_ID = crypto.randomUUID();
 
     const messagesEl = document.getElementById('messages');
     const inputEl = document.getElementById('user-input');
@@ -483,7 +484,7 @@
         const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message, history: conversationHistory.slice(0, -1) })
+          body: JSON.stringify({ message, history: conversationHistory.slice(0, -1), sessionId: SESSION_ID })
         });
 
         const data = await response.json();
