@@ -1,135 +1,60 @@
-Nicholas Pelczar   npczar@gmail.com  |  415-205-7743 
-AI Conversation Designer ⬥ Product Designer ⬥ UX/UI Writer 
-AI design specialist with a decade of shipped experiences across agentic products, voice assistants, chatbots, and 
-multimodal wearables at Meta, Intuit, and PullString. Equally at home in Figma, Docs, or Terminal, crafting intuitive and 
-high-quality interactions and the systems behind them.  
+John Doe
+Full Address ▪ City, State, ZIP ▪ Phone Number ▪ E-mail
 
-●  Systems-level thinking. Built voice and tone frameworks, taxonomies, prompts, ﬂows, and response templates 
+OBJECTIVE: Design apparel print for an innovative retail company
+EDUCATION:
+UNIVERSITY OF MINNESOTA
+College of Design
+ Bachelor of Science in Graphic Design
+ Cumulative GPA 3.93, Dean’s List
+ Twin cities Iron Range Scholarship
 
-to make AI interactions feel natural. 
+City, State
+May 2011
 
-●  AI ﬂuency. Shaped multiple multimodal AI experiences on smart glasses and enterprise chatbots, launching 
+WORK EXPERIENCE:
+AMERICAN EAGLE
+City, State
+Sales Associate
+July 2009 - present
+ Collaborated with the store merchandiser creating displays to attract clientele
+ Use my trend awareness to assist customers in their shopping experience
+ Thoroughly scan every piece of merchandise for inventory control
+ Process shipment to increase my product knowledge
+PLANET BEACH
+City, State
+Spa Consultant
+Aug. 2008 - present
+ Sell retail and memberships to meet company sales goals
+ Build organizational skills by single handedly running all operating procedures
+ Communicate with clients to fulfill their wants and needs
+ Attend promotional events to market our services
+ Handle cash and deposits during opening and closing
+ Received employee of the month award twice
+HEARTBREAKER
+City, State
+Sales Associate
+May 2008 – Aug. 2008
+ Stocked sales floor with fast fashion inventory
+ Marked down items allowing me to see unsuccessful merchandise in a retail market
+ Offered advice and assistance to each guest
+VICTORIA’S SECRET
+Fashion Representative
+ Applied my leadership skills by assisting in the training of coworkers
+ Set up mannequins and displays in order to entice future customers
+ Provided superior customer service by helping with consumer decisions
+ Took seasonal inventory
 
-new products and features in high-urgency, ambiguous spaces. 
+City, State
+Jan. 2006 – Feb. 2009
 
-●  Cross-functional partner. Worked closely across disciplines, with a track record of deﬁning new product 
+VOLUNTEER EXPERIENCE:
+TARGET CORPORATION
+Brand Ambassador
+ Represented Periscope Marketing and Target Inc. at a college event
+ Engaged University of Minnesota freshman in the Target brand experience
 
-spaces and evangelizing design principles across organizations. 
+City, State
+August 2009
 
-META  Remote  |  2021-2026 
-Senior Product & Conversation Designer  
-Led conversation and voice UX design for AI smart glasses experiences across multimodal, 
-live AI, autocapture, QR payments and more. Shaped agent identity, voice and tone. 
-Promoted with consistent Exceeded Expectations ratings across review cycles. 
-
-PROJECTS 
-
-●  Live AI. Lead designer crafting end-to-end voice ﬂows, invocation systems, and NLU 
-
-training utterances. Co-led launches on Ray-Ban Meta smart glasses glasses, deﬁning 
-session openers, error and edge cases, and TTS responses tuned from user feedback. 
-
-●  Autocapture. Design lead for the on-frame Autocapture experience integrating a 
-constellation of devices and leveraging multimodal AI to automatically capture 
-high-interest, pertinent moments. 
-
-●  Mentorship. Scaled conversation design knowledge across Meta Reality Labs by 
-
-mentoring senior designers, co-presenting an RL-wide Design Talk on Conversation 
-Design, and built a VUI Resource Hub to onboard Voice PMs. 
-
-INTUIT  Mountain View, CA  |  2018-2021 
-Principle Content & Conversation Designer  
-Led content and conversation design strategy for QB Assistant. Translated complex ﬁnancial 
-concepts into clear, compliant, self-help experiences for small business owners. Responsible 
-for persona, voice and tone, conversational ﬂows, content, and intents. 
-
-PROJECTS 
-
-●  QB Assistant. Grew the capabilities and reach of the in-product chatbot with a focus 
-
-on self-help, product insights, & proactivity.   
-
-●  QuickBooks. Content strategy and design for various on-screen experiences. 
-●  Thought leader. Evangelized conversation design across Intuit, leading workshops, 
-
-persona development sessions, and content salons. 
-
-PULLSTRING  San Francisco, CA  |  2015-2018 
-UX Designer & Writer  
-Designed, wrote, and implemented 20+ interactive products across multiple surfaces including 
-chatbots, smart speakers, SMS, and more. Responsible for e2e design strategy and execution, 
-persona and narrative development, voice and tone, and response and intent management.  
-
-PROJECTS 
-
-EXPERTISE 
-
-Human-Computer Interaction 
-Microcopy & UI Writing 
-User Flow & IA 
-Multimodal Interaction Design 
-Content Design Systems 
-Glossary Development 
-AI Output Evaluation 
-Onboarding & Error Design 
-
-Conversation Design 
-Stack ﬂuency: NLP, ASR, TTS 
-Intent & Rules Engines 
-Intent System Scripting 
-Logic-Based Conditions 
-Response Templates 
-Prompt Engineering 
-System Prompt Writing 
-Agent Behavior Design 
-
-Content Development 
-Storyboards, Scripts, Copy, 
-Dialogue, Persona Decks 
-
-SOFTWARE 
-
-Design Tools 
-Claude Code, Chat GPT, Meta 
-AI, Figma, After Effects, 
-Illustrator, Photoshop, Google 
-Suite, MS Ofﬁce  
-
-EDUCATION 
-
-A.C.T. Theater School 
-MFA Acting 
-University of Virginia 
-BA English, Minor Studio Art 
-
-●  Mattel. Designed a neural network, coded conversation modules, and wrote 10,000 
-
-BACKGROUND 
-
-lines of content for ﬁrst interactive Barbie, voted a top TIME Toy of the Year. 
-●  Google Home & Alexa. Built two family-friendly kids games. Led end-to-end 
-production of a gameshow skill; redesigned intent system for SpongeBob skill. 
-
-●  Humani. Co-created Jessie Humani, a 20-hour interactive SMS game featured at 2016 
-
-F8 Conference; led branching narrative design, writing, coding, and QA. 
-
-10-year career as a full-time 
-Stage Actor in over 40 shows 
-in the US & Canada, including 
-lead roles in award-winning 
-plays at top Bay Area theaters.  
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
