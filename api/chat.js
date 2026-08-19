@@ -221,7 +221,7 @@ ${SITE_CONTENT}`;
 
     try {
       const turn = Math.floor((history || []).length / 2) + 1;
-      await fetch('https://api.airtable.com/v0/apprKP5QDqWmZphhq/Sessions', {
+      const airtableRes = await fetch('https://api.airtable.com/v0/apprKP5QDqWmZphhq/Sessions', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`,
@@ -239,6 +239,8 @@ ${SITE_CONTENT}`;
           }]
         })
       });
+      const airtableData = await airtableRes.json();
+      console.log('Airtable response:', airtableRes.status, JSON.stringify(airtableData));
     } catch (logErr) {
       console.error('Airtable logging failed:', logErr);
     }
