@@ -46,6 +46,7 @@
       position: relative;
       overflow: hidden;
       margin: -12px -12px 0 -12px;
+      height: 2000px;
       transition: height 0.75s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -439,17 +440,10 @@
       startPlaceholderCycle();
     }
 
-    window.addEventListener('load', () => {
-      const heroCard = document.getElementById('hero-card');
-      const container = document.getElementById('chat-container');
-      const inputArea = document.getElementById('input-area');
-      heroCard.style.height = (container.clientHeight - inputArea.offsetHeight - 12) + 'px';
-
-      setTimeout(() => {
-        heroCard.style.height = '170px';
-        setTimeout(playOpeningSequence, 800);
-      }, 1800);
-    });
+    setTimeout(() => {
+      document.getElementById('hero-card').style.height = '170px';
+      setTimeout(playOpeningSequence, 800);
+    }, 1800);
 
     function addResumeCard() {
       const div = document.createElement('div');
