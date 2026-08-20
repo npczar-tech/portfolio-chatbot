@@ -330,6 +330,7 @@
     const ghostInner = document.getElementById('ghost-inner');
     const sendBtn = document.getElementById('send-btn');
     const conversationHistory = [];
+    let isResponding = false;
 
     const PLACEHOLDER_SUGGESTIONS = [
       'Ask me about conversation design...',
@@ -527,8 +528,6 @@
         }
       }
     }
-
-    let isResponding = false;
 
     async function sendMessage() {
       const message = inputEl.value.trim();
