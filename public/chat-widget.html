@@ -41,8 +41,37 @@
       overflow: hidden;
     }
 
+    #hero-card {
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      margin: -12px -12px 0 -12px;
+      transition: height 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    #hero-hello {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: 'Faunces', serif;
+      font-size: 56px;
+      font-weight: 600;
+      color: #c4522a;
+      line-height: 1;
+      pointer-events: none;
+    }
+
     #messages {
       flex: 1;
+      min-height: 0;
       overflow-y: auto;
       padding: 20px 20px 8px;
       display: flex;
@@ -267,6 +296,10 @@
 </head>
 <body>
   <div id="chat-container">
+    <div id="hero-card">
+      <img id="hero-image" src="https://static.wixstatic.com/media/f8fb27_3d06f584d7dc4adabd64d5f5be159349~mv2.png" alt="Nick">
+      <div id="hero-hello">Hello</div>
+    </div>
     <div id="messages">
 
     </div>
@@ -379,7 +412,44 @@
       }
     });
 
-    startPlaceholderCycle();
+    // Opening sequence runs on load — placeholder starts after
+    isResponding = true;
+    sendBtn.disabled = true;
+    ghostEl.style.display = 'none';
+
+    const OPENING_MESSAGES = [
+      "I'm Nick, a conversation and product designer.",
+      "I built this for fun. It knows a bit about me and my work.",
+      "Let's chat."
+    ];
+
+    async function playOpeningSequence() {
+      for (let i = 0; i < OPENING_MESSAGES.length; i++) {
+        const typingEl = addMessage(thinkingLabel(), 'typing');
+        await pause(900 + Math.random() * 400);
+        typingEl.remove();
+        addMessage(OPENING_MESSAGES[i], 'bot');
+        if (i < OPENING_MESSAGES.length - 1) {
+          await pause(readingPause(OPENING_MESSAGES[i]));
+        }
+      }
+      isResponding = false;
+      sendBtn.disabled = false;
+      ghostEl.style.display = '';
+      startPlaceholderCycle();
+    }
+
+    window.addEventListener('load', () => {
+      const heroCard = document.getElementById('hero-card');
+      const container = document.getElementById('chat-container');
+      const inputArea = document.getElementById('input-area');
+      heroCard.style.height = (container.clientHeight - inputArea.offsetHeight - 12) + 'px';
+
+      setTimeout(() => {
+        heroCard.style.height = '170px';
+        setTimeout(playOpeningSequence, 800);
+      }, 1800);
+    });
 
     function addResumeCard() {
       const div = document.createElement('div');
