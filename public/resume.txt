@@ -20,8 +20,8 @@ live AI, autocapture, QR payments and more. Shaped agent identity, voice and ton
 Promoted with consistent Exceeded Expectations ratings across review cycles.
 PROJECTS​
 ●​ Live AI. Lead designer crafting end-to-end voice flows, invocation systems, and NLU
-training utterances. Co-led launches on Ray-Ban Meta smart glasses glasses, defining
-session openers, error and edge cases, and TTS responses tuned from user feedback.
+training utterances. Co-led launches on Ray-Ban Meta smart glasses, defining session
+openers, error and edge cases, and TTS responses tuned from user feedback.
 ●​ Autocapture. Design lead for the on-frame Autocapture experience integrating a
 constellation of devices and leveraging multimodal AI to automatically capture
 high-interest, pertinent moments.
