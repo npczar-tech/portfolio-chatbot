@@ -1,95 +1,124 @@
 Nicholas Pelczar npczar@gmail.com | 415-205-7743
-AI Conversation Designer ⬥ Product Designer ⬥ UX/UI Writer
 
-AI design specialist with a decade of shipped experiences across agentic products, voice assistants, chatbots, and
-multimodal wearables at Meta, Intuit, and PullString. Equally at home in Figma, Docs, or Terminal, crafting intuitive and
-high-quality interactions and the systems behind them.
-●​ Systems-level thinking. Built voice and tone frameworks, taxonomies, prompts, flows, and response templates
-to make AI interactions feel natural.
-●​ AI fluency. Shaped multiple multimodal AI experiences on smart glasses and enterprise chatbots, launching
-new products and features in high-urgency, ambiguous spaces.
-●​ Cross-functional partner. Worked closely across disciplines, with a track record of defining new product
-spaces and evangelizing design principles across organizations.
-EXPERTISE
+Senior Product Designer | AI and Conversational Experiences
+Product designer specializing in AI and conversational experiences, with 10+ years of experience shipping multimodal products, voice
+assistants, chatbots, and interactive experiences at Meta, Intuit, and PullString. Designs customer-facing interactions and the systems
+behind them. Leads ambiguous, zero-to-one initiatives and aligns cross-functional teams around compelling product experiences.
+●​
+
+AI product design. Designed and launched AI experiences across smart glasses, enterprise software, voice
+assistants, and chatbots.
+
+●​
+
+Systems thinking. Built interaction frameworks, prompts, taxonomies, intent systems, and voice-and-tone
+standards that enabled natural, cohesive experiences at scale.
+
+●​
+
+Cross-functional leadership. Defined emerging product spaces and aligned product, engineering, research,
+and design from concept through launch.
 
 META Remote | 2021-2026
+Senior Product and Conversation Designer
 
-Senior Product & Conversation Designer
-Led conversation and voice UX design for AI smart glasses experiences across multimodal,
-live AI, autocapture, QR payments and more. Shaped agent identity, voice and tone.
-Promoted with consistent Exceeded Expectations ratings across review cycles.
-PROJECTS​
-●​ Live AI. Lead designer crafting end-to-end voice flows, invocation systems, and NLU
-training utterances. Co-led launches on Ray-Ban Meta smart glasses, defining session
-openers, error and edge cases, and TTS responses tuned from user feedback.
-●​ Autocapture. Design lead for the on-frame Autocapture experience integrating a
-constellation of devices and leveraging multimodal AI to automatically capture
-high-interest, pertinent moments.
-●​ Mentorship. Scaled conversation design knowledge across Meta Reality Labs by
-mentoring senior designers, co-presenting an RL-wide Design Talk on Conversation
-Design, and built a VUI Resource Hub to onboard Voice PMs.
+Led product, conversation, and voice UX design for multimodal experiences across Meta’s AI
+glasses portfolio, which sold more than 7M units in 2025. Defined agent identity, interaction
+patterns, voice, and tone across features including Live AI, Autocapture, and QR payments.
+Promoted to the next IC level while consistently earning Exceeded Expectations ratings.​
+●​
+
+Live AI. Led interaction and voice design for a continuous multimodal AI experience,
+defining invocation, multi-turn flows, error recovery, and TTS responses from early
+access through general availability in North America.
+
+●​
+
+Autocapture. Led design of the on-frame experience for a cross-device feature that
+used activity signals to automatically capture high-interest moments. Showcased at
+Meta Connect 2024 and launched with Oakley Meta Vanguard.
+
+●​
+
+Design leadership. Expanded conversation design capabilities across Reality Labs by
+mentoring senior designers, co-presenting an organization-wide design talk, and
+contributing to a voice UX resource hub.
 
 INTUIT Mountain View, CA | 2018-2021
-Principle Content & Conversation Designer
-Led content and conversation design strategy for QB Assistant. Translated complex financial
-concepts into clear, compliant, self-help experiences for small business owners. Responsible
-for persona, voice and tone, conversational flows, content, and intents.
-PROJECTS​
-●​ QB Assistant. Grew the capabilities and reach of the in-product chatbot with a focus
-on self-help, product insights, & proactivity.
-●​ QuickBooks. Content strategy and design for various on-screen experiences.
-●​ Thought leader. Evangelized conversation design across Intuit, leading workshops,
-persona development sessions, and content salons.
+Principal Content and Conversation Designer
+
+Led content and conversation design for QB Assistant, serving 1.7M lifetime users and 25K
+daily users. Owned the conversational architecture, intent systems, content, and voice and
+tone for compliant, self-service finance experiences. Promoted from Senior to Principal.​
+●​
+
+QB Assistant. Expanded the assistant across three QB products and from about 200
+to 600+ intents, adding self-service, personalized insights, and proactive guidance.
+
+●​
+
+Bank connection. Designed an API-integrated flow for customer-actionable banking
+errors, increasing resolution from 62% to 63.8% in a statistically significant A/B test.
+
+●​
+
+Design leadership. Supported the growth of the conversation-design practice from 2
+to 20+ designers and led ongoing workshops, persona sessions, and content salons.
 
 PULLSTRING San Francisco, CA | 2015-2018
-UX Designer & Writer
-Designed, wrote, and implemented 20+ interactive products across multiple surfaces including
-chatbots, smart speakers, SMS, and more. Responsible for e2e design strategy and execution,
-persona and narrative development, voice and tone, and response and intent management.
-PROJECTS
-●​ Mattel. Designed a neural network, coded conversation modules, and wrote 10,000
-lines of content for first interactive Barbie, voted a top TIME Toy of the Year.
-●​ Google Home & Alexa. Built two family-friendly kids games. Led end-to-end
-production of a gameshow skill; redesigned intent system for SpongeBob skill.
-●​ Humani. Co-created Jessie Humani, a 20-hour interactive SMS game featured at 2016
-F8 Conference; led branching narrative design, writing, coding, and QA.
+UX Designer and Writer
 
+Designed, wrote, and implemented 20+ conversational products across connected toys,
+chatbots, smart speakers, and SMS. Owned end-to-end interaction design, persona and
+narrative development, voice and tone, and content and intent systems.
+●​
+
+Hello Barbie. Designed the conversational architecture, coded dialogue modules, and
+wrote 10,000 lines of content for Mattel’s first conversational Barbie doll.
+
+●​
+
+Google Home and Alexa. Built two voice games for children. Led production of a
+game-show experience and redesigned the intent system for the SpongeBob skill.
+
+●​
+
+Humani. Co-created a 20-hour interactive SMS game featured at F8 2016. Led its
+branching narrative design, writing, implementation, and QA.
+
+EXPERTISE
+Product and Interaction Design
 Human-Computer Interaction
-Microcopy & UI Writing
-User Flow & IA
+User Flows and IA
 Multimodal Interaction Design
+Onboarding and Error Recovery
 Content Design Systems
-Glossary Development
-AI Output Evaluation
-Onboarding & Error Design
-Conversation Design
-Stack fluency: NLP, ASR, TTS
-Intent & Rules Engines
-Intent System Scripting
-Logic-Based Conditions
-Response Templates
+AI and Conversation Design
+Conversation Design and Voice UX
+NLU, ASR, and TTS
+Agent Behavior and System Prompts
 Prompt Engineering
-System Prompt Writing
-Agent Behavior Design
-Content Development
-Storyboards, Scripts, Copy,
-Dialogue, Persona Decks
-SOFTWARE
-Design Tools
-Claude Code, Chat GPT, Meta
-AI, Figma, After Effects,
-Illustrator, Photoshop, Google
-Suite, MS Office
+Intent Architecture and Rules Engines
+AI Output Evaluation
+Content and Narrative
+UX Writing and Microcopy
+Voice and Tone
+Persona Development
+Dialogue and Scriptwriting
+TOOLS
+Figma, Claude Code, ChatGPT, Meta
+AI, After Effects, Illustrator,
+Photoshop, Google Workspace,
+Microsoft 365
 EDUCATION
-A.C.T. Theater School
-MFA Acting
+American Conservatory Theater
+MFA, Acting
 University of Virginia
-BA English, Minor Studio Art
-BACKGROUND
-10-year career as a full-time
-Stage Actor in over 40 shows
-in the US & Canada, including
-lead roles in award-winning
-plays at top Bay Area theaters.
+BA, English; Minor, Studio Art
+EARLY CAREER
+Professional stage actor for 10 years,
+performing in 40+ productions across
+the US and Canada, including leading
+roles at major Bay Area theaters.
 
 
